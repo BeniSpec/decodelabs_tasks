@@ -13,3 +13,9 @@ Status: in progress.
 4. Flagged (not deleted) statistical outliers for review.
 5. Added derived columns useful for later analysis.
 6. Validated the result and exported the cleaned dataset.
+
+## How to Run
+```bash
+pip install -r ../requirements.txt
+python clean_orders.py
+```
