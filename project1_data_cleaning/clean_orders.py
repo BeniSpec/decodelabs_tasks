@@ -34,3 +34,6 @@ def trim_text_columns(df):
 def standardize_product(df):
     df["Product"] = df["Product"].str.title()
     return df
+def standardize_order_status(df):
+    df["OrderStatus"] = df["OrderStatus"].str.title()
+    return df
