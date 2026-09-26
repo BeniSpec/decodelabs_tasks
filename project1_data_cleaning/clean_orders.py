@@ -85,3 +85,7 @@ def add_repeat_customer_flag(df):
     counts = df["CustomerID"].value_counts()
     df["IsRepeatCustomer"] = df["CustomerID"].map(counts) > 1
     return df
+
+def add_has_coupon_flag(df):
+    df["HasCoupon"] = df["CouponCode"] != "No Coupon"
+    return df
