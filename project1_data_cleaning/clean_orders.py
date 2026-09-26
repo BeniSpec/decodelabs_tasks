@@ -113,3 +113,7 @@ def clean_data(df):
     df = add_has_coupon_flag(df)
     df = add_customer_avg_order_value(df)
     return df
+
+def check_row_count(before, after):
+    print(f"Rows before: {len(before)}, after: {len(after)}")
+    assert len(before) == len(after), "Row count changed unexpectedly"
