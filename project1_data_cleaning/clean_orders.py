@@ -62,3 +62,8 @@ def flag_price_outliers(df):
     lower, upper = q1 - 1.5 * iqr, q3 + 1.5 * iqr
     df["PriceOutlier"] = ~df["UnitPrice"].between(lower, upper)
     return df
+
+def check_repeat_customers(df):
+    counts = df["CustomerID"].value_counts()
+    print("Repeat customers:", (counts > 1).sum())
+    return df
