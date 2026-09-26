@@ -19,3 +19,7 @@ def clean_data(df):
     print("Trimming text fields...")
     df = trim_text_columns(df)
     # (keep the rest of the calls, just add a print line above each one)
+
+def clean_dates(df):
+    df["Date"] = pd.to_datetime(df["Date"], errors="coerce", format="mixed")
+    return df
