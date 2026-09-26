@@ -144,3 +144,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+def fill_missing_coupon(df):
+    """Replace missing CouponCode values with 'No Coupon'."""
+    df["CouponCode"] = df["CouponCode"].fillna("No Coupon")
+    return df
