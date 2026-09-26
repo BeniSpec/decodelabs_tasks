@@ -20,3 +20,10 @@
 | Filled missing CouponCode | Missing meant "no coupon used" | 309 rows updated |
 | Standardized text casing | Consistency for grouping/analysis | All text columns |
 | Flagged Quantity/Price outliers | Separate real extremes from errors | Marked, not deleted |
+
+## Before vs After
+| Check | Before | After |
+|---|---|---|
+| Missing CouponCode | 309 | 0 |
+| Duplicate rows | 0 | 0 |
+| Inconsistent casing | Some | None |
