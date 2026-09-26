@@ -12,3 +12,7 @@ if __name__ == "__main__":
     print(df.isnull().sum())
     print("Duplicate OrderIDs:", df["OrderID"].duplicated().sum())
     print("Duplicate full rows:", df.duplicated().sum())
+    
+    calc = df["Quantity"] * df["UnitPrice"]
+    mismatches = (calc - df["TotalPrice"]).abs() > 0.01
+    print("TotalPrice mismatches:", mismatches.sum())
