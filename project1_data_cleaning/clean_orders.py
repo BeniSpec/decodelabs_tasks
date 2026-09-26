@@ -67,3 +67,8 @@ def check_repeat_customers(df):
     counts = df["CustomerID"].value_counts()
     print("Repeat customers:", (counts > 1).sum())
     return df
+
+def validate_tracking_number(df):
+    valid = df["TrackingNumber"].str.match(r"^TRK\d+$")
+    print("Invalid tracking numbers:", (~valid).sum())
+    return df
