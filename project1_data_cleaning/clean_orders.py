@@ -40,3 +40,7 @@ def standardize_product(df):
 def standardize_order_status(df):
     df["OrderStatus"] = df["OrderStatus"].str.title()
     return df
+
+def clean_dates(df):
+    df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
+    return df
