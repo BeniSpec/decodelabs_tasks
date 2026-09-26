@@ -80,3 +80,8 @@ def add_order_month(df):
 def add_order_year(df):
     df["OrderYear"] = df["Date"].dt.year
     return df
+
+def add_repeat_customer_flag(df):
+    counts = df["CustomerID"].value_counts()
+    df["IsRepeatCustomer"] = df["CustomerID"].map(counts) > 1
+    return df
