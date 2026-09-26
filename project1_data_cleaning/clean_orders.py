@@ -132,19 +132,15 @@ def check_no_duplicates(df):
     assert df["OrderID"].duplicated().sum() == 0, "Duplicate OrderIDs found"
 
 
+def main():
+    raw = load_data()
+    cleaned = clean_data(raw.copy())
+    check_row_count(raw, cleaned)
+    check_no_unexpected_nulls(cleaned)
+    check_no_duplicates(cleaned)
+    cleaned.to_csv("../data/processed/orders_cleaned.csv", index=False)
+    print("Cleaned dataset saved.")
+
+
 if __name__ == "__main__":
-    df = load_data()
-    print(df.head())
-    print("Shape:", df.shape)
-    print(df.dtypes)
-    print("Missing values per column:")
-    print(df.isnull().sum())
-    print("Duplicate OrderIDs:", df["OrderID"].duplicated().sum())
-    print("Duplicate full rows:", df.duplicated().sum())
-
-    calc = df["Quantity"] * df["UnitPrice"]
-    mismatches = (calc - df["TotalPrice"]).abs() > 0.01
-    print("TotalPrice mismatches:", mismatches.sum())
-
-    for col in ["Product", "PaymentMethod", "OrderStatus", "ReferralSource", "CouponCode"]:
-        print(col, "->", df[col].unique())
+    main()
