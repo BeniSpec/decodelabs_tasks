@@ -31,6 +31,9 @@ def trim_text_columns(df):
         df[col] = df[col].astype(str).str.strip()
     return df
 
+def standardize_payment_method(df):
+    df["PaymentMethod"] = df["PaymentMethod"].str.title()
+    return df
 def standardize_product(df):
     df["Product"] = df["Product"].str.title()
     return df
