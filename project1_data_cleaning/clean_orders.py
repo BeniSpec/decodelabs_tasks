@@ -11,3 +11,4 @@ if __name__ == "__main__":
     print("Missing values per column:")
     print(df.isnull().sum())
     print("Duplicate OrderIDs:", df["OrderID"].duplicated().sum())
+    print("Duplicate full rows:", df.duplicated().sum())
