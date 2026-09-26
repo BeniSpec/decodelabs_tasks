@@ -94,3 +94,22 @@ def add_customer_avg_order_value(df):
     avg = df.groupby("CustomerID")["TotalPrice"].transform("mean")
     df["CustomerAvgOrderValue"] = avg.round(2)
     return df
+
+# Combine everything into one pipeline function
+def clean_data(df):
+    df = standardize_columns(df)
+    df = trim_text_columns(df)
+    df = standardize_product(df)
+    df = standardize_payment_method(df)
+    df = standardize_order_status(df)
+    df = clean_dates(df)
+    df = fill_missing_coupon(df)
+    df = flag_quantity_outliers(df)
+    df = flag_price_outliers(df)
+    df = validate_tracking_number(df)
+    df = add_order_month(df)
+    df = add_order_year(df)
+    df = add_repeat_customer_flag(df)
+    df = add_has_coupon_flag(df)
+    df = add_customer_avg_order_value(df)
+    return df
