@@ -10,3 +10,4 @@ if __name__ == "__main__":
     print(df.dtypes)
     print("Missing values per column:")
     print(df.isnull().sum())
+    print("Duplicate OrderIDs:", df["OrderID"].duplicated().sum())
