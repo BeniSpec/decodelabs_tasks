@@ -76,3 +76,7 @@ def validate_tracking_number(df):
 def add_order_month(df):
     df["OrderMonth"] = df["Date"].dt.to_period("M").astype(str)
     return df
+
+def add_order_year(df):
+    df["OrderYear"] = df["Date"].dt.year
+    return df
