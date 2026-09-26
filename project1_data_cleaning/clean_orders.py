@@ -89,3 +89,8 @@ def add_repeat_customer_flag(df):
 def add_has_coupon_flag(df):
     df["HasCoupon"] = df["CouponCode"] != "No Coupon"
     return df
+
+def add_customer_avg_order_value(df):
+    avg = df.groupby("CustomerID")["TotalPrice"].transform("mean")
+    df["CustomerAvgOrderValue"] = avg.round(2)
+    return df
