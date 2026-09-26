@@ -30,3 +30,7 @@ def trim_text_columns(df):
     for col in text_cols:
         df[col] = df[col].astype(str).str.strip()
     return df
+
+def standardize_product(df):
+    df["Product"] = df["Product"].str.title()
+    return df
