@@ -55,3 +55,10 @@ def flag_quantity_outliers(df):
     lower, upper = q1 - 1.5 * iqr, q3 + 1.5 * iqr
     df["QuantityOutlier"] = ~df["Quantity"].between(lower, upper)
     return df
+
+def flag_price_outliers(df):
+    q1, q3 = df["UnitPrice"].quantile([0.25, 0.75])
+    iqr = q3 - q1
+    lower, upper = q1 - 1.5 * iqr, q3 + 1.5 * iqr
+    df["PriceOutlier"] = ~df["UnitPrice"].between(lower, upper)
+    return df
