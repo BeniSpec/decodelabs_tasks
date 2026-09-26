@@ -117,3 +117,7 @@ def clean_data(df):
 def check_row_count(before, after):
     print(f"Rows before: {len(before)}, after: {len(after)}")
     assert len(before) == len(after), "Row count changed unexpectedly"
+
+def check_no_unexpected_nulls(df):
+    nulls = df.drop(columns=["QuantityOutlier", "PriceOutlier"]).isnull().sum()
+    assert nulls.sum() == 0, f"Unexpected nulls found:\n{nulls[nulls > 0]}"
