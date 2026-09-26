@@ -19,7 +19,14 @@ if __name__ == "__main__":
 
 for col in ["Product", "PaymentMethod", "OrderStatus", "ReferralSource", "CouponCode"]:
         print(col, "->", df[col].unique())
-        
+
 def standardize_columns(df):
     df.columns = [c.strip() for c in df.columns]
-    return df 
+    return df
+ 
+def trim_text_columns(df):
+    text_cols = ["Product", "ShippingAddress", "PaymentMethod",
+                 "OrderStatus", "ReferralSource", "CouponCode"]
+    for col in text_cols:
+        df[col] = df[col].astype(str).str.strip()
+    return df
