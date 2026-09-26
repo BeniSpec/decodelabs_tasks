@@ -12,3 +12,5 @@ def test_fill_missing_coupon_replaces_nan():
     df = pd.DataFrame({"CouponCode": ["SAVE10", None]})
     result = fill_missing_coupon(df)
     assert result["CouponCode"].isnull().sum() == 0
+
+# Add main function to run full cleaning pipeline
