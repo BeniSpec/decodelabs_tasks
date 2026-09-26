@@ -19,7 +19,6 @@ Status: in progress.
 pip install -r ../requirements.txt
 python clean_orders.py
 ```
-
 ## Sample of Cleaned Data
 | OrderID | Date | Product | TotalPrice | HasCoupon |
 |---|---|---|---|---|
