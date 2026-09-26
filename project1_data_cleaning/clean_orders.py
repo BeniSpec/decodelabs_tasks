@@ -48,3 +48,10 @@ def clean_dates(df):
 def fill_missing_coupon(df):
     df["CouponCode"] = df["CouponCode"].fillna("No Coupon")
     return df
+
+def flag_quantity_outliers(df):
+    q1, q3 = df["Quantity"].quantile([0.25, 0.75])
+    iqr = q3 - q1
+    lower, upper = q1 - 1.5 * iqr, q3 + 1.5 * iqr
+    df["QuantityOutlier"] = ~df["Quantity"].between(lower, upper)
+    return df
