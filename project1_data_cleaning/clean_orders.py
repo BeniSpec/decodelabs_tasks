@@ -121,3 +121,6 @@ def check_row_count(before, after):
 def check_no_unexpected_nulls(df):
     nulls = df.drop(columns=["QuantityOutlier", "PriceOutlier"]).isnull().sum()
     assert nulls.sum() == 0, f"Unexpected nulls found:\n{nulls[nulls > 0]}"
+
+def check_no_duplicates(df):
+    assert df["OrderID"].duplicated().sum() == 0, "Duplicate OrderIDs found"
