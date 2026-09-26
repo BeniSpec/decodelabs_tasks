@@ -44,3 +44,7 @@ def standardize_order_status(df):
 def clean_dates(df):
     df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
     return df
+
+def fill_missing_coupon(df):
+    df["CouponCode"] = df["CouponCode"].fillna("No Coupon")
+    return df
