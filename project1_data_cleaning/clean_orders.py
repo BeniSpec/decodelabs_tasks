@@ -6,3 +6,5 @@ def load_data(path="../data/raw/orders_raw.csv"):
 if __name__ == "__main__":
     df = load_data()
     print(df.head())
+    print("Shape:", df.shape)
+    print(df.dtypes)
