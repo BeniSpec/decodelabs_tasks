@@ -16,6 +16,10 @@ if __name__ == "__main__":
     calc = df["Quantity"] * df["UnitPrice"]
     mismatches = (calc - df["TotalPrice"]).abs() > 0.01
     print("TotalPrice mismatches:", mismatches.sum())
-    
+
 for col in ["Product", "PaymentMethod", "OrderStatus", "ReferralSource", "CouponCode"]:
         print(col, "->", df[col].unique())
+        
+def standardize_columns(df):
+    df.columns = [c.strip() for c in df.columns]
+    return df 
