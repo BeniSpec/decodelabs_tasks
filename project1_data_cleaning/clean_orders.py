@@ -72,3 +72,7 @@ def validate_tracking_number(df):
     valid = df["TrackingNumber"].str.match(r"^TRK\d+$")
     print("Invalid tracking numbers:", (~valid).sum())
     return df
+
+def add_order_month(df):
+    df["OrderMonth"] = df["Date"].dt.to_period("M").astype(str)
+    return df
