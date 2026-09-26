@@ -13,3 +13,10 @@
 - Quantity outliers flagged: [fill in your actual number]
 - UnitPrice outliers flagged: [fill in your actual number]
 - All post-cleaning checks passed (no nulls, no duplicates)
+
+## Change Log
+| Change | Reason | Impact |
+|---|---|---|
+| Filled missing CouponCode | Missing meant "no coupon used" | 309 rows updated |
+| Standardized text casing | Consistency for grouping/analysis | All text columns |
+| Flagged Quantity/Price outliers | Separate real extremes from errors | Marked, not deleted |
