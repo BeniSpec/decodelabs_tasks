@@ -22,8 +22,8 @@ python run_queries.py
 ## Sample Result: Revenue by Product
 | Product | Revenue |
 |---|---|
-| [fill in top product] | [fill in actual number] |
-| [fill in second product] | [fill in actual number] |
+| Chair | $195,620.11 |
+| Printer | $195,612.61 |
 
 ## Query Index
 1. Revenue by product — which products earn the most
