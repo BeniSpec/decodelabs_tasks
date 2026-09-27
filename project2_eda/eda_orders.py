@@ -53,3 +53,13 @@ def revenue_by_product(df):
     result = df.groupby("Product")["TotalPrice"].sum().sort_values(ascending=False)
     print(result)
     return result
+
+def plot_revenue_by_product(df):
+    revenue = revenue_by_product(df)
+    plt.figure(figsize=(8, 5))
+    revenue.plot(kind="bar")
+    plt.title("Revenue by Product")
+    plt.ylabel("Total Revenue")
+    plt.tight_layout()
+    plt.savefig("charts/revenue_by_product.png")
+    plt.close()
