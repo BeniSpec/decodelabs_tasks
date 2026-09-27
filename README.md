@@ -21,3 +21,8 @@ pip install pandas
 python build_db.py
 python run_queries.py
 ```
+## Sample Result: Revenue by Product
+| Product | Revenue |
+|---|---|
+| [fill in top product] | [fill in actual number] |
+| [fill in second product] | [fill in actual number] |
