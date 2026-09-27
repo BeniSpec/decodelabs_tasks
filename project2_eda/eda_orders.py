@@ -1,4 +1,9 @@
+import os
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+os.makedirs("charts", exist_ok=True)
 
 
 def load_cleaned_data(path="../data/processed/orders_cleaned.csv"):
@@ -9,13 +14,6 @@ def compare_mean_median(df, col="TotalPrice"):
     print(f"{col} mean: {df[col].mean():.2f}")
     print(f"{col} median: {df[col].median():.2f}")
 
-if __name__ == "__main__":
-    df = load_cleaned_data()
-    print(df.shape)
-    print(df.head())
-    print(df.describe())
-
-import matplotlib.pyplot as plt
 
 def plot_price_distribution(df):
     plt.figure(figsize=(8, 5))
@@ -26,6 +24,7 @@ def plot_price_distribution(df):
     plt.savefig("charts/unitprice_distribution.png")
     plt.close()
 
+
 def plot_quantity_distribution(df):
     plt.figure(figsize=(8, 5))
     df["Quantity"].hist(bins=15)
@@ -35,12 +34,14 @@ def plot_quantity_distribution(df):
     plt.savefig("charts/quantity_distribution.png")
     plt.close()
 
+
 def plot_price_boxplot(df):
     plt.figure(figsize=(6, 5))
     df.boxplot(column="UnitPrice")
     plt.title("UnitPrice Outliers")
     plt.savefig("charts/unitprice_boxplot.png")
     plt.close()
+
 
 def plot_quantity_boxplot(df):
     plt.figure(figsize=(6, 5))
@@ -49,10 +50,12 @@ def plot_quantity_boxplot(df):
     plt.savefig("charts/quantity_boxplot.png")
     plt.close()
 
+
 def revenue_by_product(df):
     result = df.groupby("Product")["TotalPrice"].sum().sort_values(ascending=False)
     print(result)
     return result
+
 
 def plot_revenue_by_product(df):
     revenue = revenue_by_product(df)
@@ -64,10 +67,12 @@ def plot_revenue_by_product(df):
     plt.savefig("charts/revenue_by_product.png")
     plt.close()
 
+
 def monthly_revenue_trend(df):
     df["OrderMonth"] = df["Date"].dt.to_period("M").astype(str)
     trend = df.groupby("OrderMonth")["TotalPrice"].sum()
     return trend
+
 
 def plot_monthly_trend(df):
     trend = monthly_revenue_trend(df)
@@ -80,6 +85,7 @@ def plot_monthly_trend(df):
     plt.savefig("charts/monthly_revenue_trend.png")
     plt.close()
 
+
 def plot_revenue_by_payment_method(df):
     revenue = df.groupby("PaymentMethod")["TotalPrice"].sum().sort_values(ascending=False)
     plt.figure(figsize=(8, 5))
@@ -88,6 +94,7 @@ def plot_revenue_by_payment_method(df):
     plt.tight_layout()
     plt.savefig("charts/revenue_by_payment_method.png")
     plt.close()
+
 
 def plot_order_status_breakdown(df):
     counts = df["OrderStatus"].value_counts()
@@ -98,6 +105,7 @@ def plot_order_status_breakdown(df):
     plt.savefig("charts/order_status_breakdown.png")
     plt.close()
 
+
 def plot_referral_source_breakdown(df):
     counts = df["ReferralSource"].value_counts()
     plt.figure(figsize=(7, 5))
@@ -107,15 +115,18 @@ def plot_referral_source_breakdown(df):
     plt.savefig("charts/referral_source_breakdown.png")
     plt.close()
 
+
 def coupon_usage_rate(df):
     used = (df["HasCoupon"]).sum()
     rate = used / len(df) * 100
     print(f"Coupon usage rate: {rate:.1f}%")
     return rate
 
+
 def iqr_outlier_summary(df):
     print("Quantity outliers (IQR method):", df["QuantityOutlier"].sum())
     print("UnitPrice outliers (IQR method):", df["PriceOutlier"].sum())
+
 
 def zscore_outliers(df, col="TotalPrice"):
     mean, std = df[col].mean(), df[col].std()
@@ -124,13 +135,12 @@ def zscore_outliers(df, col="TotalPrice"):
     print(f"{col} z-score outliers (|z| > 3): {flagged}")
     return flagged
 
+
 def correlation_matrix(df):
     numeric_cols = ["Quantity", "UnitPrice", "ItemsInCart", "TotalPrice"]
     corr = df[numeric_cols].corr()
     print(corr)
     return corr
-
-import seaborn as sns
 
 def plot_correlation_heatmap(df):
     corr = correlation_matrix(df)
@@ -141,9 +151,12 @@ def plot_correlation_heatmap(df):
     plt.savefig("charts/correlation_heatmap.png")
     plt.close()
 
+
 def main():
     df = load_cleaned_data()
     print(df.shape)
+    print(df.head())
+    print(df.describe())
     compare_mean_median(df)
     plot_price_distribution(df)
     plot_quantity_distribution(df)
@@ -159,6 +172,7 @@ def main():
     zscore_outliers(df)
     plot_correlation_heatmap(df)
     print("EDA complete. Charts saved to charts/ folder.")
+
 
 if __name__ == "__main__":
     main()
