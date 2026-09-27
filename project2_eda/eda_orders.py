@@ -129,3 +129,14 @@ def correlation_matrix(df):
     corr = df[numeric_cols].corr()
     print(corr)
     return corr
+
+import seaborn as sns
+
+def plot_correlation_heatmap(df):
+    corr = correlation_matrix(df)
+    plt.figure(figsize=(7, 6))
+    sns.heatmap(corr, annot=True, cmap="coolwarm")
+    plt.title("Correlation Heatmap")
+    plt.tight_layout()
+    plt.savefig("charts/correlation_heatmap.png")
+    plt.close()
