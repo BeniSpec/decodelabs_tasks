@@ -112,3 +112,7 @@ def coupon_usage_rate(df):
     rate = used / len(df) * 100
     print(f"Coupon usage rate: {rate:.1f}%")
     return rate
+
+def iqr_outlier_summary(df):
+    print("Quantity outliers (IQR method):", df["QuantityOutlier"].sum())
+    print("UnitPrice outliers (IQR method):", df["PriceOutlier"].sum())
