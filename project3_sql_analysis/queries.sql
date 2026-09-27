@@ -71,6 +71,7 @@ FROM orders
 WHERE TotalPrice > (SELECT AVG(TotalPrice) FROM orders)
 ORDER BY TotalPrice DESC;
 
+
 -- Which product sells best under each payment method?
 SELECT PaymentMethod, Product, SUM(TotalPrice) AS Revenue
 FROM orders
