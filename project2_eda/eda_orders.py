@@ -140,3 +140,25 @@ def plot_correlation_heatmap(df):
     plt.tight_layout()
     plt.savefig("charts/correlation_heatmap.png")
     plt.close()
+
+def main():
+    df = load_cleaned_data()
+    print(df.shape)
+    compare_mean_median(df)
+    plot_price_distribution(df)
+    plot_quantity_distribution(df)
+    plot_price_boxplot(df)
+    plot_quantity_boxplot(df)
+    plot_revenue_by_product(df)
+    plot_monthly_trend(df)
+    plot_revenue_by_payment_method(df)
+    plot_order_status_breakdown(df)
+    plot_referral_source_breakdown(df)
+    coupon_usage_rate(df)
+    iqr_outlier_summary(df)
+    zscore_outliers(df)
+    plot_correlation_heatmap(df)
+    print("EDA complete. Charts saved to charts/ folder.")
+
+if __name__ == "__main__":
+    main()
