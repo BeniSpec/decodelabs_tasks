@@ -64,3 +64,9 @@ SELECT ReferralSource, SUM(TotalPrice) AS Revenue, COUNT(*) AS OrderCount
 FROM orders
 GROUP BY ReferralSource
 ORDER BY Revenue DESC;
+
+-- Which orders are worth more than the overall average order value?
+SELECT OrderID, CustomerID, TotalPrice
+FROM orders
+WHERE TotalPrice > (SELECT AVG(TotalPrice) FROM orders)
+ORDER BY TotalPrice DESC;
