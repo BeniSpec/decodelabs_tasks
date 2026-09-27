@@ -19,3 +19,9 @@ FROM orders
 GROUP BY CustomerID
 ORDER BY TotalSpent DESC
 LIMIT 10;
+
+-- How does revenue change month to month?
+SELECT strftime('%Y-%m', Date) AS Month, SUM(TotalPrice) AS Revenue
+FROM orders
+GROUP BY Month
+ORDER BY Month;
