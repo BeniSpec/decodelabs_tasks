@@ -123,3 +123,9 @@ def zscore_outliers(df, col="TotalPrice"):
     flagged = (z.abs() > 3).sum()
     print(f"{col} z-score outliers (|z| > 3): {flagged}")
     return flagged
+
+def correlation_matrix(df):
+    numeric_cols = ["Quantity", "UnitPrice", "ItemsInCart", "TotalPrice"]
+    corr = df[numeric_cols].corr()
+    print(corr)
+    return corr
