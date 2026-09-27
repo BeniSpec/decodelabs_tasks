@@ -14,3 +14,14 @@ if __name__ == "__main__":
     print(df.shape)
     print(df.head())
     print(df.describe())
+
+import matplotlib.pyplot as plt
+
+def plot_price_distribution(df):
+    plt.figure(figsize=(8, 5))
+    df["UnitPrice"].hist(bins=30)
+    plt.title("Distribution of UnitPrice")
+    plt.xlabel("UnitPrice")
+    plt.ylabel("Number of Orders")
+    plt.savefig("charts/unitprice_distribution.png")
+    plt.close()
