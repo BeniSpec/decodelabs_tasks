@@ -12,3 +12,10 @@ SELECT OrderStatus, COUNT(*) AS OrderCount
 FROM orders
 GROUP BY OrderStatus
 ORDER BY OrderCount DESC;
+
+-- Who are the highest-spending customers?
+SELECT CustomerID, SUM(TotalPrice) AS TotalSpent
+FROM orders
+GROUP BY CustomerID
+ORDER BY TotalSpent DESC
+LIMIT 10;
