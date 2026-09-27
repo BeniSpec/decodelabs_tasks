@@ -7,3 +7,5 @@ if __name__ == "__main__":
     df = load_cleaned_data()
     print(df.shape)
     print(df.head())
+
+    print(df.describe())
