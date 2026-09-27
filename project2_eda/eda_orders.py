@@ -88,3 +88,12 @@ def plot_revenue_by_payment_method(df):
     plt.tight_layout()
     plt.savefig("charts/revenue_by_payment_method.png")
     plt.close()
+
+def plot_order_status_breakdown(df):
+    counts = df["OrderStatus"].value_counts()
+    plt.figure(figsize=(7, 5))
+    counts.plot(kind="bar")
+    plt.title("Orders by Status")
+    plt.tight_layout()
+    plt.savefig("charts/order_status_breakdown.png")
+    plt.close()
