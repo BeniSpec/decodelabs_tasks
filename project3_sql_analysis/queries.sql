@@ -25,3 +25,9 @@ SELECT strftime('%Y-%m', Date) AS Month, SUM(TotalPrice) AS Revenue
 FROM orders
 GROUP BY Month
 ORDER BY Month;
+
+-- Which payment method has the highest average order value?
+SELECT PaymentMethod, AVG(TotalPrice) AS AvgOrderValue
+FROM orders
+GROUP BY PaymentMethod
+ORDER BY AvgOrderValue DESC;
