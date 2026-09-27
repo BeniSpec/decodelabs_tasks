@@ -79,3 +79,12 @@ def plot_monthly_trend(df):
     plt.tight_layout()
     plt.savefig("charts/monthly_revenue_trend.png")
     plt.close()
+
+def plot_revenue_by_payment_method(df):
+    revenue = df.groupby("PaymentMethod")["TotalPrice"].sum().sort_values(ascending=False)
+    plt.figure(figsize=(8, 5))
+    revenue.plot(kind="bar")
+    plt.title("Revenue by Payment Method")
+    plt.tight_layout()
+    plt.savefig("charts/revenue_by_payment_method.png")
+    plt.close()
