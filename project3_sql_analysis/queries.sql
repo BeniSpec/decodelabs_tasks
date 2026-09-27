@@ -51,3 +51,10 @@ FROM orders
 GROUP BY CustomerID
 HAVING COUNT(*) > 1 AND SUM(TotalPrice) > 3000
 ORDER BY TotalSpent DESC;
+
+-- Which products are typically ordered in the largest quantities?
+SELECT Product, AVG(Quantity) AS AvgQuantityPerOrder
+FROM orders
+GROUP BY Product
+ORDER BY AvgQuantityPerOrder DESC
+LIMIT 5;
