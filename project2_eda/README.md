@@ -18,3 +18,7 @@ something worth investigating further, not a final conclusion.
 - [Y] orders flagged as Quantity/UnitPrice outliers for review
 - Monthly revenue shows [describe the trend you saw]
 - Strongest correlation found: [pair of columns] at [value]
+
+## So What?
+- [Finding] suggests [business implication]
+- [Finding] suggests [business implication]
