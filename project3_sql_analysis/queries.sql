@@ -6,3 +6,9 @@ SELECT Product, SUM(TotalPrice) AS Revenue
 FROM orders
 GROUP BY Product
 ORDER BY Revenue DESC;
+
+-- How many orders fall into each status?
+SELECT OrderStatus, COUNT(*) AS OrderCount
+FROM orders
+GROUP BY OrderStatus
+ORDER BY OrderCount DESC;
