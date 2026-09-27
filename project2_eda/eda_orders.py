@@ -63,3 +63,19 @@ def plot_revenue_by_product(df):
     plt.tight_layout()
     plt.savefig("charts/revenue_by_product.png")
     plt.close()
+
+def monthly_revenue_trend(df):
+    df["OrderMonth"] = df["Date"].dt.to_period("M").astype(str)
+    trend = df.groupby("OrderMonth")["TotalPrice"].sum()
+    return trend
+
+def plot_monthly_trend(df):
+    trend = monthly_revenue_trend(df)
+    plt.figure(figsize=(10, 5))
+    trend.plot(kind="line", marker="o")
+    plt.title("Monthly Revenue Trend")
+    plt.ylabel("Revenue")
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.savefig("charts/monthly_revenue_trend.png")
+    plt.close()
