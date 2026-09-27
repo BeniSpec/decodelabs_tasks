@@ -34,3 +34,10 @@ def plot_quantity_distribution(df):
     plt.ylabel("Number of Orders")
     plt.savefig("charts/quantity_distribution.png")
     plt.close()
+
+def plot_price_boxplot(df):
+    plt.figure(figsize=(6, 5))
+    df.boxplot(column="UnitPrice")
+    plt.title("UnitPrice Outliers")
+    plt.savefig("charts/unitprice_boxplot.png")
+    plt.close()
