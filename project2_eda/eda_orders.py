@@ -25,3 +25,12 @@ def plot_price_distribution(df):
     plt.ylabel("Number of Orders")
     plt.savefig("charts/unitprice_distribution.png")
     plt.close()
+
+def plot_quantity_distribution(df):
+    plt.figure(figsize=(8, 5))
+    df["Quantity"].hist(bins=15)
+    plt.title("Distribution of Quantity")
+    plt.xlabel("Quantity")
+    plt.ylabel("Number of Orders")
+    plt.savefig("charts/quantity_distribution.png")
+    plt.close()
