@@ -41,3 +41,10 @@ def plot_price_boxplot(df):
     plt.title("UnitPrice Outliers")
     plt.savefig("charts/unitprice_boxplot.png")
     plt.close()
+
+def plot_quantity_boxplot(df):
+    plt.figure(figsize=(6, 5))
+    df.boxplot(column="Quantity")
+    plt.title("Quantity Outliers")
+    plt.savefig("charts/quantity_boxplot.png")
+    plt.close()
