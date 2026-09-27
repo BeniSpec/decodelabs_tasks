@@ -106,3 +106,9 @@ def plot_referral_source_breakdown(df):
     plt.tight_layout()
     plt.savefig("charts/referral_source_breakdown.png")
     plt.close()
+
+def coupon_usage_rate(df):
+    used = (df["HasCoupon"]).sum()
+    rate = used / len(df) * 100
+    print(f"Coupon usage rate: {rate:.1f}%")
+    return rate
