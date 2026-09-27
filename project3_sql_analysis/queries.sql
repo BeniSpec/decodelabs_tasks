@@ -44,3 +44,10 @@ SELECT OrderID, CustomerID, Product, TotalPrice
 FROM orders
 WHERE OrderStatus = 'Returned'
 ORDER BY TotalPrice DESC;
+
+-- Which customers have placed more than 1 order and spent over 3000 total?
+SELECT CustomerID, COUNT(*) AS OrderCount, SUM(TotalPrice) AS TotalSpent
+FROM orders
+GROUP BY CustomerID
+HAVING COUNT(*) > 1 AND SUM(TotalPrice) > 3000
+ORDER BY TotalSpent DESC;
