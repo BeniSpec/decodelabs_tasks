@@ -48,3 +48,8 @@ def plot_quantity_boxplot(df):
     plt.title("Quantity Outliers")
     plt.savefig("charts/quantity_boxplot.png")
     plt.close()
+
+def revenue_by_product(df):
+    result = df.groupby("Product")["TotalPrice"].sum().sort_values(ascending=False)
+    print(result)
+    return result
