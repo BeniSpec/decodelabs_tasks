@@ -97,3 +97,12 @@ def plot_order_status_breakdown(df):
     plt.tight_layout()
     plt.savefig("charts/order_status_breakdown.png")
     plt.close()
+
+def plot_referral_source_breakdown(df):
+    counts = df["ReferralSource"].value_counts()
+    plt.figure(figsize=(7, 5))
+    counts.plot(kind="bar")
+    plt.title("Orders by Referral Source")
+    plt.tight_layout()
+    plt.savefig("charts/referral_source_breakdown.png")
+    plt.close()
