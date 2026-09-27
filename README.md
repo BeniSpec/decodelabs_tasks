@@ -14,3 +14,10 @@ SQL doesn't run top to bottom the way you read it. The database
 processes FROM and WHERE before SELECT, which is why you can't
 filter using a column alias you just created in SELECT — that alias
 doesn't exist yet at the point WHERE runs.
+
+## How to Run
+```bash
+pip install pandas
+python build_db.py
+python run_queries.py
+```
