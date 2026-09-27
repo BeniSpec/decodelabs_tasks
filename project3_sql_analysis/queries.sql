@@ -31,3 +31,10 @@ SELECT PaymentMethod, AVG(TotalPrice) AS AvgOrderValue
 FROM orders
 GROUP BY PaymentMethod
 ORDER BY AvgOrderValue DESC;
+
+-- What share of orders used a coupon?
+SELECT
+    CASE WHEN CouponCode = 'No Coupon' THEN 'No Coupon' ELSE 'Used Coupon' END AS CouponStatus,
+    COUNT(*) AS OrderCount
+FROM orders
+GROUP BY CouponStatus;
