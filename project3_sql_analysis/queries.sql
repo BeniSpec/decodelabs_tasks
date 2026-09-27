@@ -58,3 +58,9 @@ FROM orders
 GROUP BY Product
 ORDER BY AvgQuantityPerOrder DESC
 LIMIT 5;
+
+-- Which referral sources drive the most revenue?
+SELECT ReferralSource, SUM(TotalPrice) AS Revenue, COUNT(*) AS OrderCount
+FROM orders
+GROUP BY ReferralSource
+ORDER BY Revenue DESC;
