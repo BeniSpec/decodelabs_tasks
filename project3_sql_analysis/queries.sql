@@ -1,4 +1,4 @@
--- Sanity check: confirm the table loaded correctly
+-- Sanity check: confirm the table loaded correctly 
 SELECT * FROM orders LIMIT 10;
 
 -- Which products bring in the most revenue?
