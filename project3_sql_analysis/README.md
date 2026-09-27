@@ -5,7 +5,7 @@ answer specific business questions using SQL queries.
 
 Uses: data/processed/orders_cleaned.csv (output of Project 1)
 
-Status: in progress.
+Status: complete.
 
 ## A Note on Query Order
 SQL doesn't run top to bottom the way you read it. The database
