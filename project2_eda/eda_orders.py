@@ -9,7 +9,6 @@ def compare_mean_median(df, col="TotalPrice"):
     print(f"{col} mean: {df[col].mean():.2f}")
     print(f"{col} median: {df[col].median():.2f}")
 
-
 if __name__ == "__main__":
     df = load_cleaned_data()
     print(df.shape)
