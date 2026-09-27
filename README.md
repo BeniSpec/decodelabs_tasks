@@ -8,21 +8,3 @@ This repo contains my submissions for the Decode Labs Data Analytics internship:
 
 All three projects use the same e-commerce orders dataset, so the work
 builds from one project into the next.
-
-## A Note on Query Order
-SQL doesn't run top to bottom the way you read it. The database
-processes FROM and WHERE before SELECT, which is why you can't
-filter using a column alias you just created in SELECT — that alias
-doesn't exist yet at the point WHERE runs.
-
-## How to Run
-```bash
-pip install pandas
-python build_db.py
-python run_queries.py
-```
-## Sample Result: Revenue by Product
-| Product | Revenue |
-|---|---|
-| [fill in top product] | [fill in actual number] |
-| [fill in second product] | [fill in actual number] |
