@@ -24,3 +24,17 @@ python run_queries.py
 |---|---|
 | [fill in top product] | [fill in actual number] |
 | [fill in second product] | [fill in actual number] |
+
+## Query Index
+1. Revenue by product — which products earn the most
+2. Orders by status — order pipeline health
+3. Top 10 customers — who to prioritize for retention
+4. Monthly revenue trend — is the business growing
+5. Average order value by payment method — payment behavior
+6. Coupon usage rate — promotion effectiveness
+7. Returned orders — where losses are happening
+8. High-value repeat customers — best customers to reward
+9. Top products by average quantity — bulk-buy items
+10. Revenue by referral source — best marketing channels
+11. Above-average orders — high-value order patterns
+12. Best product per payment method — cross-analysis
