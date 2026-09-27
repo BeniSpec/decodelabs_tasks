@@ -38,3 +38,9 @@ SELECT
     COUNT(*) AS OrderCount
 FROM orders
 GROUP BY CouponStatus;
+
+-- Which orders were returned, and what were they worth?
+SELECT OrderID, CustomerID, Product, TotalPrice
+FROM orders
+WHERE OrderStatus = 'Returned'
+ORDER BY TotalPrice DESC;
