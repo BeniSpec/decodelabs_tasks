@@ -116,3 +116,10 @@ def coupon_usage_rate(df):
 def iqr_outlier_summary(df):
     print("Quantity outliers (IQR method):", df["QuantityOutlier"].sum())
     print("UnitPrice outliers (IQR method):", df["PriceOutlier"].sum())
+
+def zscore_outliers(df, col="TotalPrice"):
+    mean, std = df[col].mean(), df[col].std()
+    z = (df[col] - mean) / std
+    flagged = (z.abs() > 3).sum()
+    print(f"{col} z-score outliers (|z| > 3): {flagged}")
+    return flagged
